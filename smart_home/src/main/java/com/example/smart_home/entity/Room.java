@@ -1,5 +1,6 @@
 package com.example.smart_home.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +13,10 @@ import javax.persistence.Table;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Open_sensors")
-public class Open_sensor {
+@Table(name = "Rooms")
+
+public class Room {
     @Id
     private int id;
     private String name;
-    private String address;
-    private int room;
-    private int state;
 }

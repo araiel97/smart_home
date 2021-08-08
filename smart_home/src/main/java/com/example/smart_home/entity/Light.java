@@ -16,6 +16,8 @@ import javax.persistence.Table;
 public class Light {
     @Id
     private int id;
+    private String name;
+    private String address;
     private int room;
     private int state;
 }

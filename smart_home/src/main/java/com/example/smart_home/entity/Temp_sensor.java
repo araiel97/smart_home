@@ -17,7 +17,8 @@ import javax.persistence.Table;
 public class Temp_sensor {
     @Id
     private int id;
-    private float address;
+    private String name;
+    private String address;
     private int room;
     private float temperature;
     private float humidity;
