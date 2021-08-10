@@ -11,15 +11,17 @@ import javax.persistence.Table;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Lights")
-public class Light {
+@Table(name = "TEMP_SENSORS")
+
+public class TempSensor {
     @Id
     @GeneratedValue
     private int id;
     private String name;
     private String address;
     private int room;
-    private int state;
+    private float temperature;
+    private float humidity;
 
     public int getId() {
         return id;
@@ -41,6 +43,22 @@ public class Light {
         this.address = address;
     }
 
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(float humidity) {
+        this.humidity = humidity;
+    }
+
+    public float getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(float temperature) {
+        this.temperature = temperature;
+    }
+
     public int getRoom() {
         return room;
     }
@@ -49,11 +67,5 @@ public class Light {
         this.room = room;
     }
 
-    public int getState() {
-        return state;
-    }
 
-    public void setState(int state) {
-        this.state = state;
-    }
 }

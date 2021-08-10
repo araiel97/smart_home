@@ -11,8 +11,8 @@ import javax.persistence.Table;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Lights")
-public class Light {
+@Table(name = "Open_sensors")
+public class OpenSensor {
     @Id
     @GeneratedValue
     private int id;

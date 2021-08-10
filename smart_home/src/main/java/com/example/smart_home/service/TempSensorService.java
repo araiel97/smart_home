@@ -1,37 +1,37 @@
 package com.example.smart_home.service;
 
-import com.example.smart_home.entity.Temp_sensor;
-import com.example.smart_home.repository.Temp_sensor_repository;
+import com.example.smart_home.entity.TempSensor;
+import com.example.smart_home.repository.TempSensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class Temp_sensor_Service {
+public class TempSensorService {
     @Autowired
-    private Temp_sensor_repository repository;
-    public Temp_sensor add_sensor(Temp_sensor temp_sensor){
+    private TempSensorRepository repository;
+    public TempSensor add_sensor(TempSensor temp_sensor){
         return repository.save(temp_sensor);
     }
-    public List<Temp_sensor> add_sensors(List<Temp_sensor> temp_sensors){
+    public List<TempSensor> add_sensors(List<TempSensor> temp_sensors){
         return repository.saveAll(temp_sensors);
     }
-    public Temp_sensor getTemp_SensorById(int id){
+    public TempSensor findTempSensorById(int id){
         return repository.findById(id).orElse(null);
     }
-    public List<Temp_sensor> getTempSensors(){
+    public List<TempSensor> findTempSensors(){
         return repository.findAll();
     }
-    public Temp_sensor getTemp_SensorByName(String name){
+    public TempSensor findTempSensorByName(String name){
         return repository.findByName(name);
     }
-    public String deleteTemp_sensor(int id){
+    public String deleteTempSensor(int id){
         repository.deleteById(id);
         return "Temperature sensor successfully removed" + id;
     }
-    public Temp_sensor updateTemp_sensor(Temp_sensor temp_sensor){
-        Temp_sensor temp_sensor_chosen = repository.findById(temp_sensor.getId()).orElse(null);
+    public TempSensor updateTempSensor(TempSensor temp_sensor){
+        TempSensor temp_sensor_chosen = repository.findById(temp_sensor.getId()).orElse(null);
         temp_sensor_chosen.setName(temp_sensor.getName());
         temp_sensor_chosen.setAddress(temp_sensor.getAddress());
         temp_sensor_chosen.setTemperature(temp_sensor.getTemperature());
