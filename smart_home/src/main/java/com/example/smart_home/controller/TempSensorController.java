@@ -19,7 +19,7 @@ public class TempSensorController {
     }
     @PostMapping("/addTempSensors")
     public List<TempSensor> addSensors(@RequestBody List<TempSensor> temp_sensors){
-        return service.add_sensors(temp_sensors);    }
+        return service.add_sensors(temp_sensors); }
     @GetMapping("/TempSensors")
     public List<TempSensor> findTempSensors(){
         return service.findTempSensors();
