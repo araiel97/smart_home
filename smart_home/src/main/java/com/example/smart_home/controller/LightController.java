@@ -7,21 +7,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class LightController {
     @Autowired
     private LightService service;
     public Light light;
 
     @PostMapping("/addLight")
-    public Light addLight(@RequestBody Light light) {return service.add_Light(light);}
+    public Light addLight(@RequestBody Light light) {return service.addLight(light);}
     @PostMapping("/addLights")
-    public List<Light> addLights(@RequestBody List<Light> lights) {return service.add_Lights(lights);}
+    public List<Light> addLights(@RequestBody List<Light> lights) {return service.addLights(lights);}
     @GetMapping("/Lights")
-    public List<Light> findAllLights() {return service.getLights();}
+    public List<Light> findAllLights() {return service.findAllLights();}
     @GetMapping("/Light/{id}")
-    public Light findLightById(@PathVariable int id) { return service.getLightByID(id);}
+    public Light findLightById(@PathVariable int id) { return service.findLightById(id);}
     @GetMapping("/Light{name}")
-    public Light findLightByName(@PathVariable String name) { return  service.getLightByName(name);}
+    public Light findLightByName(@PathVariable String name) { return  service.findLightByName(name);}
     @PutMapping ("/Light/update")
     public Light updateLight(@RequestBody Light light) {return service.updateLight(light);}
     @DeleteMapping ("/Light/delete/{id}")

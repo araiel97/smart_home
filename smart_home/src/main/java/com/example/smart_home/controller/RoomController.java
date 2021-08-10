@@ -18,9 +18,9 @@ public class RoomController {
     @PostMapping("/addRooms")
     public List<Room> addRooms(@RequestBody List <Room> rooms) { return service.addRooms(rooms);}
     @GetMapping("/Rooms")
-    public List<Room> findRooms(){return service.findRooms();}
+    public List<Room> findRooms(){ return service.findAllRooms();}
     @GetMapping("/Room/{id}")
-    public Room findRoomById(@PathVariable int id){return service.findRoomById(id);}
+    public Room findRoomById(@PathVariable int id){ return service.findRoomById(id);}
     @GetMapping("/Room/{name}")
     public Room findRoomByName(@PathVariable String name){ return service.findRoomByName(name);}
     @DeleteMapping("/Room/delete/{id}")

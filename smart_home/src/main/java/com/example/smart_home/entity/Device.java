@@ -4,17 +4,21 @@ import lombok.*;
 
 import javax.persistence.*;
 
+
 @Data
 @RequiredArgsConstructor
+@MappedSuperclass
 @AllArgsConstructor
-@Entity
-@Table(name="rooms")
 
-public class Room {
+public class Device {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique = true)
     private String name;
+    @Column(unique = true)
+    private String address;
+    private int room;
 
 }

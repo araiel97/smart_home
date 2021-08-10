@@ -13,12 +13,10 @@ public class RoomService {
     private RoomRepository repository;
     public Room addRoom(Room room) {return repository.save(room);}
     public List<Room> addRooms(List<Room> rooms) {return repository.saveAll(rooms);}
-    public List<Room> findRooms() {return  repository.findAll();}
+    public List<Room> findAllRooms() {return  repository.findAll();}
     public Room findRoomById(int id){ return repository.findById(id).orElse(null);}
     public Room findRoomByName(String name){return repository.findByName(name);}
-    public String deleteRoomById(int id){ repository.deleteById(id);
-    return "Room removed successfully";
-    }
+    public String deleteRoomById(int id){ repository.deleteById(id); return "Room removed successfully";}
     public Room updateRoom(Room room){
         Room room_chosen = repository.findById(room.getId()).orElse(null);
         room_chosen.setName(room.getName());

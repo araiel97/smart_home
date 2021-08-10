@@ -11,25 +11,16 @@ import java.util.List;
 public class TempSensorService {
     @Autowired
     private TempSensorRepository repository;
-    public TempSensor add_sensor(TempSensor temp_sensor){
+    public TempSensor addTempSensor(TempSensor temp_sensor){
         return repository.save(temp_sensor);
     }
-    public List<TempSensor> add_sensors(List<TempSensor> temp_sensors){
+    public List<TempSensor> addTempSensors(List<TempSensor> temp_sensors){
         return repository.saveAll(temp_sensors);
     }
-    public TempSensor findTempSensorById(int id){
-        return repository.findById(id).orElse(null);
-    }
-    public List<TempSensor> findTempSensors(){
-        return repository.findAll();
-    }
-    public TempSensor findTempSensorByName(String name){
-        return repository.findByName(name);
-    }
-    public String deleteTempSensor(int id){
-        repository.deleteById(id);
-        return "Temperature sensor successfully removed" + id;
-    }
+    public TempSensor findTempSensorById(int id){ return repository.findById(id).orElse(null);}
+    public List<TempSensor> findAllTempSensors(){ return repository.findAll();}
+    public TempSensor findTempSensorByName(String name){ return repository.findByName(name);}
+    public String deleteTempSensorById(int id){ repository.deleteById(id); return "Temperature sensor successfully removed" + id;}
     public TempSensor updateTempSensor(TempSensor temp_sensor){
         TempSensor temp_sensor_chosen = repository.findById(temp_sensor.getId()).orElse(null);
         temp_sensor_chosen.setName(temp_sensor.getName());

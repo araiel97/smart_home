@@ -14,26 +14,17 @@ public class TempSensorController {
     public TempSensor temp_sensor;
 
     @PostMapping("/addTempSensor")
-    public TempSensor addSensor(@RequestBody TempSensor temp_sensor){
-        return service.add_sensor(temp_sensor);
-    }
+    public TempSensor addSensor(@RequestBody TempSensor temp_sensor){ return service.addTempSensor(temp_sensor);}
     @PostMapping("/addTempSensors")
-    public List<TempSensor> addSensors(@RequestBody List<TempSensor> temp_sensors){
-        return service.add_sensors(temp_sensors); }
+    public List<TempSensor> addSensors(@RequestBody List<TempSensor> temp_sensors){ return service.addTempSensors(temp_sensors);}
     @GetMapping("/TempSensors")
-    public List<TempSensor> findTempSensors(){
-        return service.findTempSensors();
-    }
+    public List<TempSensor> findTempSensors(){ return service.findAllTempSensors();}
     @GetMapping("/TempSensor/{id}")
-    public TempSensor findTempSensorByID(@PathVariable int id){
-        return service.findTempSensorById(id);
-    }
+    public TempSensor findTempSensorByID(@PathVariable int id){ return service.findTempSensorById(id);}
     @GetMapping("/TempSensor/{name}")
-    public TempSensor findTempSensorByName(@PathVariable String name){
-        return service.findTempSensorByName(name);
-    }
+    public TempSensor findTempSensorByName(@PathVariable String name){ return service.findTempSensorByName(name);}
     @PutMapping("/TempSensor/update")
-    public TempSensor updateTempSensor(@RequestBody TempSensor temp_sensor) {  return service.updateTempSensor(temp_sensor);  }
+    public TempSensor updateTempSensor(@RequestBody TempSensor temp_sensor){ return service.updateTempSensor(temp_sensor);}
     @DeleteMapping("/TempSensor/delete/{id}")
-    public String deleteTempSensor(@PathVariable int id) { return service.deleteTempSensor(id); }
+    public String deleteTempSensor(@PathVariable int id){ return service.deleteTempSensorById(id);}
 }

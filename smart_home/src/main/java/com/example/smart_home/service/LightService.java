@@ -11,15 +11,16 @@ import java.util.List;
 public class LightService {
     @Autowired
     private LightRepository repository;
-    public Light add_Light(Light light){ return repository.save(light);}
-    public List<Light> add_Lights(List<Light> lights) {return repository.saveAll(lights);}
-    public Light getLightByID(int id){ return repository.findById(id).orElse(null);}
-    public List<Light> getLights(){ return repository.findAll();}
-    public Light getLightByName(String name){ return repository.findByName(name);}
+    public Light addLight(Light light){ return repository.save(light);}
+    public List<Light> addLights(List<Light> lights) {return repository.saveAll(lights);}
+    public List<Light> findAllLights(){ return repository.findAll();}
+    public Light findLightById(int id){ return repository.findById(id).orElse(null);}
+    public Light findLightByName(String name){ return repository.findByName(name);}
     public String deleteLightById(int id) { repository.deleteById(id);
     return "Light successfully removed";}
     public Light updateLight(Light light) {
-        Light light_chosen = repository.findById(light.getId()).orElse(null);
+        Light light_chosen;
+        light_chosen = repository.findById(light.getId()).orElse(null);
         light_chosen.setName(light.getName());
         light_chosen.setAddress(light.getAddress());
         light_chosen.setRoom(light.getRoom());

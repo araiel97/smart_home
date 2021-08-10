@@ -13,11 +13,10 @@ public class OpenSensorService {
     private OpenSensorRepository repository;
     public OpenSensor addOpenSensor(OpenSensor open_sensor) {return repository.save(open_sensor);}
     public List<OpenSensor> addOpenSensors(List <OpenSensor> open_sensors) {return repository.saveAll(open_sensors);}
-    public List <OpenSensor> findOpenSensors() {return repository.findAll();}
+    public List<OpenSensor> findAllOpenSensors() {return repository.findAll();}
     public OpenSensor findOpenSensorById(int id) {return repository.findById(id).orElse(null);}
-    public String deleteOpenSensorById(int id) { repository.deleteById(id);
-    return "Open Sensor removed successfully";}
     public OpenSensor findOpenSensorByName(String name){ return repository.findByName(name);}
+    public String deleteOpenSensorById(int id) { repository.deleteById(id); return "Open Sensor removed successfully";}
     public OpenSensor updateOpenSensor(OpenSensor open_sensor){
         OpenSensor open_sensor_chosen = repository.findById(open_sensor.getId()).orElse(null);
         open_sensor_chosen.setName(open_sensor.getName());

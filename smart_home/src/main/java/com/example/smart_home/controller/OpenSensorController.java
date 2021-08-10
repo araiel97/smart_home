@@ -17,7 +17,7 @@ public class OpenSensorController {
     @PostMapping("/addOpenSensors")
     public List <OpenSensor> addOpenSensors(@RequestBody List<OpenSensor> openSensors) {return service.addOpenSensors(openSensors);}
     @GetMapping("/OpenSensors")
-    public List <OpenSensor> findOpenSensors(@RequestBody List<OpenSensor> openSensors) {return service.findOpenSensors();}
+    public List <OpenSensor> findAllOpenSensors() {return service.findAllOpenSensors();}
     @GetMapping("/OpenSensor/{id}")
     public OpenSensor findOpenSensorById(@PathVariable int id){return service.findOpenSensorById(id);}
     @GetMapping("/OpenSensor/{name}")
